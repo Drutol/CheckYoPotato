@@ -1,0 +1,17 @@
+﻿<resources>
+  <!-- Default screen margins, per the Android Design guidelines. -->
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
+  <dimen name="AppBarHeight">50dp</dimen>
+  <dimen name="AppBarBtnWidth">50dp</dimen>
+  <dimen name="AppBarBtnHeight">50dp</dimen>
+  <dimen name="TextFlyoutItemHeight">30dp</dimen>
+  <dimen name="TextFlyoutItemWidth">100dp</dimen>
+  <dimen name="TextFlyoutItemWideWidth">150dp</dimen>
+  <dimen name="ShowImageWidthSmall">110dp</dimen>
+  <dimen name="ShowImageHeightSmall">140dp</dimen>
+  <dimen name="ShowImageWidthMedium">130dp</dimen>
+  <dimen name="ShowImageHeightMedium">175dp</dimen>
+  <dimen name="IncrementDecrementButtonWidth">30dp</dimen>
+  <dimen name="HamburgerMenuItemSpacing">10dp</dimen>
+</resources>

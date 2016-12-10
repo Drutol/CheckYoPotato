@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckYoPotato.Android", "CheckYoPotato\CheckYoPotato.Android.csproj", "{E6053A3F-5D37-4EFD-90FE-85A301895F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckYoPotato.ViewModels", "CheckYoPotato.ViewModels\CheckYoPotato.ViewModels.csproj", "{28DBDDFD-019F-4012-ABA1-0614934F554C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckYoPotato.Models", "CheckYoPotato.Models\CheckYoPotato.Models.csproj", "{944726A3-A289-4EBD-8852-6C8718D8AC01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckYoPotato.Adapters", "CheckYoPotato.Adapters\CheckYoPotato.Adapters.csproj", "{F1589302-F7EF-41BA-AD14-05D57FC059A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckYoPotato.Android.Adapters", "CheckYoPotato.Android.Adapters\CheckYoPotato.Android.Adapters.csproj", "{682651E2-4C53-47B6-89FD-05287AD9FA30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6053A3F-5D37-4EFD-90FE-85A301895F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6053A3F-5D37-4EFD-90FE-85A301895F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6053A3F-5D37-4EFD-90FE-85A301895F67}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E6053A3F-5D37-4EFD-90FE-85A301895F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6053A3F-5D37-4EFD-90FE-85A301895F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6053A3F-5D37-4EFD-90FE-85A301895F67}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{28DBDDFD-019F-4012-ABA1-0614934F554C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DBDDFD-019F-4012-ABA1-0614934F554C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DBDDFD-019F-4012-ABA1-0614934F554C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DBDDFD-019F-4012-ABA1-0614934F554C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944726A3-A289-4EBD-8852-6C8718D8AC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944726A3-A289-4EBD-8852-6C8718D8AC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944726A3-A289-4EBD-8852-6C8718D8AC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944726A3-A289-4EBD-8852-6C8718D8AC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1589302-F7EF-41BA-AD14-05D57FC059A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1589302-F7EF-41BA-AD14-05D57FC059A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1589302-F7EF-41BA-AD14-05D57FC059A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1589302-F7EF-41BA-AD14-05D57FC059A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682651E2-4C53-47B6-89FD-05287AD9FA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682651E2-4C53-47B6-89FD-05287AD9FA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682651E2-4C53-47B6-89FD-05287AD9FA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682651E2-4C53-47B6-89FD-05287AD9FA30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
