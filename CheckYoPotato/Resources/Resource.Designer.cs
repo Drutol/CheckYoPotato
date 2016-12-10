@@ -2942,6 +2942,12 @@ namespace CheckYoPotato
 			// aapt resource value: 0x7f070067
 			public const int MainPageHamburgerButton = 2131165287;
 			
+			// aapt resource value: 0x7f070091
+			public const int PhotosPageImage = 2131165329;
+			
+			// aapt resource value: 0x7f070092
+			public const int PhotosPagePullPhotoButton = 2131165330;
+			
 			// aapt resource value: 0x7f070084
 			public const int action0 = 2131165316;
 			
@@ -3575,19 +3581,22 @@ namespace CheckYoPotato
 			public const int notification_template_part_time = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_item_material = 2130903095;
+			public const int PhotosPage = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int select_dialog_multichoice_material = 2130903096;
+			public const int select_dialog_item_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int select_dialog_singlechoice_material = 2130903097;
+			public const int select_dialog_multichoice_material = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int SplashPage = 2130903098;
+			public const int select_dialog_singlechoice_material = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int support_simple_spinner_dropdown_item = 2130903099;
+			public const int SplashPage = 2130903099;
+			
+			// aapt resource value: 0x7f03003c
+			public const int support_simple_spinner_dropdown_item = 2130903100;
 			
 			static Layout()
 			{

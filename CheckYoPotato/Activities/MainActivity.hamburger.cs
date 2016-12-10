@@ -11,8 +11,10 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using CheckYoPotato.Listeners;
 using CheckYoPotato.Models.Enums;
 using CheckYoPotato.Resources;
+using CheckYoPotato.ViewModels;
 using Com.Mikepenz.Materialdrawer;
 using Com.Mikepenz.Materialdrawer.Model;
 using Com.Mikepenz.Materialdrawer.Model.Interfaces;
@@ -90,6 +92,15 @@ namespace CheckYoPotato.Activities
 
             _drawer = builder.Build();
             _drawer.StickyFooter.SetBackgroundColor(new Color(ResourceExtension.BrushAnimeItemInnerBackground));
+            _drawer.OnDrawerItemClickListener = new HamburgerItemClickListener(OnHamburgerItemClicked);
+        }
+
+        private void OnHamburgerItemClicked(View view, int i, IDrawerItem arg3)
+        {
+            var page = (PageIndex)arg3.Identifier;
+            ViewModelLocator.MainViewModel.Navigate(page);
+            _drawer.SetSelection(arg3, false);
+            _drawer.CloseDrawer();
         }
     }
 }
