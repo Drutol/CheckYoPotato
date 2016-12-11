@@ -59,29 +59,24 @@ namespace CheckYoPotato.Activities
             var animeButton = GetBasePrimaryItem();
             animeButton.WithName("Yo Fridge");
             animeButton.WithIdentifier((int)PageIndex.PageFridge);
-            //animeButton.WithIcon(Resource.Drawable.);
+            animeButton.WithIcon(Resource.Drawable.icon_fridge);
 
             var searchButton = GetBasePrimaryItem();
             searchButton.WithName("Yo Fridge Chat");
             searchButton.WithIdentifier((int)PageIndex.PageFridgeChat);
-            //searchButton.WithIcon(Resource.Drawable.icon_search);
+            searchButton.WithIcon(Resource.Drawable.icon_chat);
 
             var seasonalButton = GetBasePrimaryItem();
             seasonalButton.WithName("Yo Fridge Images");
             seasonalButton.WithIdentifier((int)PageIndex.PagePhotos);
-            //seasonalButton.WithIcon(Resource.Drawable.icon_seasonal);
-
-            
-
+            seasonalButton.WithIcon(Resource.Drawable.icon_photo);
+         
             var settingsButton = GetBaseSecondaryItem();
             settingsButton.WithName("Login");
             settingsButton.WithIdentifier((int)PageIndex.PageLogin);
             //settingsButton.WithIcon(Resource.Drawable.icon_settings);
 
             builder.AddStickyDrawerItems(settingsButton);
-
-            //
-
 
             builder.WithDrawerItems(new List<IDrawerItem>()
             {
