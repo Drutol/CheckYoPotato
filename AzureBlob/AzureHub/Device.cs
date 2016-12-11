@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Devices.Client;
 using Newtonsoft.Json;
 
+
 namespace AzureHub
 {
     class Device
     {
         static DeviceClient deviceClient;
+        
         static string iotHubUri = "checkyochat.azure-devices.net";
-        static string deviceKey = "vhMemlJ1vY4nr+jEPEr+25Z29EsWYILeYdsCOzISBfA=";
+       static string deviceKey = "vhMemlJ1vY4nr+jEPEr+25Z29EsWYILeYdsCOzISBfA=";
         public Device()
         {
             Console.WriteLine("Simulated device\n");

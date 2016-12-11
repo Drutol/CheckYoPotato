@@ -5,17 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ServiceBus.Messaging;
 using System.Threading;
+using Microsoft.Azure.Devices.Client;
+using Newtonsoft.Json;
+using Microsoft.Azure.Devices;
 
 namespace AzureHub
 {
     class Program
     {
+        static DeviceClient deviceClient;
+        static ServiceClient serviceClient;
         static string connectionString = "HostName=checkyochat.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=KGp6o7fe0HuQdEcT7dBXZQM6wpPDSt7YQiQC2OI/vNo=";
+
         static string iotHubD2cEndpoint = "messages/events";
         static EventHubClient eventHubClient;
         static void Main(string[] args)
         {
             //Device dev = new Device();
+            serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+
             Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
             eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, iotHubD2cEndpoint);
 
@@ -45,9 +53,12 @@ namespace AzureHub
                 if (ct.IsCancellationRequested) break;
                 EventData eventData = await eventHubReceiver.ReceiveAsync();
                 if (eventData == null) continue;
-
                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                var commandMessage = new Microsoft.Azure.Devices.Message(Encoding.ASCII.GetBytes(data));
+                await serviceClient.SendAsync("fridge", commandMessage);
+
                 Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
+                //await Task.Delay(3000);
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿{
+{
   "dependencies": {
     "Microsoft.NETCore.App": {
       "version": "1.0.1",
@@ -23,6 +23,11 @@
 
   "frameworks": {
     "netcoreapp1.0": {
+      "dependencies": {
+        "CheckYoPotato.Models": {
+          "target": "project"
+        }
+      },
       "imports": [
         "dotnet5.6",
         "portable-net45+win8"
