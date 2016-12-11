@@ -7,7 +7,7 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace CheckYoPotato.ViewModels
 {
-    public static class ViewModelLocator
+    public class ViewModelLocator
     {
         public static void InitializeDependencies()
         {

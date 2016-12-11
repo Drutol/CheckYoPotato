@@ -6,16 +6,47 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+    xmlns:conv="using:CheckYoPotato.UWP.Converters"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator},Path=MainViewModel}">
+
+    <Page.Resources>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <conv:HamburgerItemNameToImageSourceConverter x:Key="HamburgerItemNameToImageSourceConverter"/>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <!--<VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.Setters>
+
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+<AdaptiveTrigger MinWindowWidth="0"/>
+
+                    </VisualState.StateTriggers>
+                </VisualState>               
+                <VisualState>
+                    <VisualState.Setters>
+<Setter ></Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="190"></ColumnDefinition>
+            <ColumnDefinition Width="190"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Black"/>
@@ -24,9 +55,20 @@
             Foreground="White"
             OpenPaneLength="240"
             DisplayMode="CompactInline"
-            CompactPaneLength="50"
-            HamburgerHeight="50"
-            IsPaneOpen="False"/>
+            CompactPaneLength="60"
+            HamburgerHeight="60"
+            IsPaneOpen="False"
+            ItemsSource="{Binding HamburgetContents}">
+            <controls:HamburgerMenu.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="10" Width="40" Height="40" Source="{Binding ElementName=HamburgerItemText, Path=Text, Converter={StaticResource HamburgerItemNameToImageSourceConverter}}"/>
+                        <TextBlock x:Name="HamburgerItemText" Text="{Binding}" Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </controls:HamburgerMenu.ItemTemplate>
+        </controls:HamburgerMenu>
+        <Frame Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ContentFrame"/>
     </Grid>
 </Page>
 
