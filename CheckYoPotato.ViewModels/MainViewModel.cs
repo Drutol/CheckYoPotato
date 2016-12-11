@@ -24,6 +24,13 @@ namespace CheckYoPotato.ViewModels
             }
         }
 
+        public List<string> HamburgetContents { get; set; } = new List<string>()
+        {
+            "CheckYoFridge",
+            "GoForYoShopping",
+            "YoFridgeChat"
+        };
+
         public void Navigate(PageIndex page)
         {
             switch (page)
