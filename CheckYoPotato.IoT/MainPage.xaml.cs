@@ -144,7 +144,15 @@ namespace CheckYoPotato.IoT
             using (var fileStream = await path.OpenReadAsync())
             {
                 await blockBlob.UploadFromStreamAsync(fileStream.AsStream());
+                
             }
+            await Task.Delay(200);
+            var msgSend = new HttpRequestMessage(HttpMethod.Post, new Uri("http://potatoesapi.azurewebsites.net/api/photos"));
+            msgSend.Content =
+                new StringContent(
+                    "{\"camId\":0,\"link\":\"https://checkyopotato.blob.core.windows.net/fridge1/photo.png\",\"timestamp\":\"" +
+                    DateTime.Now + "\"}");
+            var respo = await new HttpClient().SendAsync(msgSend);
         }
 
         private CloudStorageAccount GetAccount()
