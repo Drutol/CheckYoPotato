@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 using CheckYoPotato.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.PlatformAbstractions;
+using System.Threading;
 
 namespace CheckYoPotato.Web.Controllers
 {
+    
+
     [Route("api/[controller]")]
     public class PhotoController : Controller
     {
+        private static SemaphoreSlim _semaphore = new SemaphoreSlim(0);
+
         public IPhotosRepository Photos { get; set; }
 
         public PhotoController(IPhotosRepository todoItems)
@@ -30,15 +35,20 @@ namespace CheckYoPotato.Web.Controllers
             return new ObjectResult(item);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            await _semaphore.WaitAsync();
+            return new ObjectResult(Photos.Find(0));
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] Photo item)
         {
             if (item == null)
-            {
                 return BadRequest();
-            }
             Photos.Add(item);
-
+            _semaphore.Release();
             return CreatedAtRoute("GetTodo", new { id = item.camId }, item);
         }
     }

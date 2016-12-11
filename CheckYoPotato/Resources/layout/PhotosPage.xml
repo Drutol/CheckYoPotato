@@ -23,7 +23,7 @@
       android:text="lol"
       android:id="@+id/PhotosPageImage"
       android:adjustViewBounds="true"
-      android:scaleType="fitXY" />
+      android:scaleType="fitCenter" />
   <Button android:layout_width="match_parent"
       android:layout_height="50dp"
       android:layout_alignParentBottom="true"
