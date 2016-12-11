@@ -2942,11 +2942,11 @@ namespace CheckYoPotato
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070067
-			public const int LoginPageProgressSpinner = 2131165287;
-			
 			// aapt resource value: 0x7f070068
-			public const int LoginPageSignInButton = 2131165288;
+			public const int LoginPageProgressSpinner = 2131165288;
+			
+			// aapt resource value: 0x7f070067
+			public const int LoginPageSignInButton = 2131165287;
 			
 			// aapt resource value: 0x7f07006b
 			public const int MainContentFrame = 2131165291;
