@@ -64,6 +64,8 @@ namespace CheckYoPotato.Activities
                 default:
                     throw new ArgumentOutOfRangeException(nameof(page), page, null);
             }
+            if(fragment == null)
+                return;
             _lastPage = fragment;
             var trans = FragmentManager.BeginTransaction();
             trans.SetCustomAnimations(Resource.Animator.animation_slide_btm,

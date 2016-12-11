@@ -38,7 +38,7 @@ namespace CheckYoPotato.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            await _semaphore.WaitAsync();
+            await _semaphore.WaitAsync(TimeSpan.FromSeconds(3));
             return new ObjectResult(Photos.Find(0));
         }
 
@@ -48,7 +48,8 @@ namespace CheckYoPotato.Web.Controllers
             if (item == null)
                 return BadRequest();
             Photos.Add(item);
-            _semaphore.Release();
+            if(_semaphore.CurrentCount > 0)
+                _semaphore.Release();
             return CreatedAtRoute("GetTodo", new { id = item.camId }, item);
         }
     }
