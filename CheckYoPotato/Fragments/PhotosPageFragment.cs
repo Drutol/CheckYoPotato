@@ -31,7 +31,8 @@ namespace CheckYoPotato.Fragments
             Bindings.Add(PhotosPageImage.Id,new List<Binding>());
             Bindings[PhotosPageImage.Id].Add(this.SetBinding(() => ViewModel.ImageLink).WhenSourceChanges(() =>
                 {
-                    ImageService.Instance.LoadUrl(ViewModel.ImageLink,TimeSpan.Zero).FadeAnimation(true).Into(PhotosPageImage);
+                    ImageService.Instance.InvalidateMemoryCache();
+                    ImageService.Instance.LoadUrl(ViewModel.ImageLink+$"?DateTime={DateTime.Now.Millisecond}",TimeSpan.Zero).FadeAnimation(true).Into(PhotosPageImage);
                 }
             ));
 
