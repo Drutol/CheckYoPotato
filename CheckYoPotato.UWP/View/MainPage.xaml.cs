@@ -24,6 +24,7 @@ namespace CheckYoPotato.UWP
     {
         public MainPage()
         {
+            this.ContentFrame.
             this.InitializeComponent();
         }
     }
