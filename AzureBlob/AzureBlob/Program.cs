@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
@@ -42,12 +43,13 @@ namespace AzureBlob
             CloudBlobContainer container = blobClient.GetContainerReference(containerstr);
             // Retrieve reference to a blob named "photo1.jpg".
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(blob);
-
-            // Save blob contents to a file.
+                        // Save blob contents to a file.
             using (var fileStream = System.IO.File.OpenWrite(path))
             {
                 blockBlob.DownloadToStream(fileStream);
             }
+            //HttpWebRequest
+            
         }
         private static CloudStorageAccount GetAccount()
         {

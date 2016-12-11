@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WorkerRole1")]
+[assembly: AssemblyTitle("AzureHub")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WorkerRole1")]
+[assembly: AssemblyProduct("AzureHub")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f2e7433f-c0ce-4477-aa30-e6744f96ab2b")]
+[assembly: Guid("b18b1ad8-3b4f-4326-a505-f57564ad4423")]
 
 // Version information for an assembly consists of the following four values:
 //
