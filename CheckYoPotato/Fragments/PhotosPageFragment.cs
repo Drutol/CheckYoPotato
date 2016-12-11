@@ -23,6 +23,7 @@ namespace CheckYoPotato.Fragments
         protected override void Init(Bundle savedInstanceState)
         {
             ViewModel = ViewModelLocator.PhotosPageViewModel;
+            ViewModel.NavigatedTo();
         }
 
         protected override void InitBindings()
@@ -30,13 +31,16 @@ namespace CheckYoPotato.Fragments
             Bindings.Add(PhotosPageImage.Id,new List<Binding>());
             Bindings[PhotosPageImage.Id].Add(this.SetBinding(() => ViewModel.ImageLink).WhenSourceChanges(() =>
                 {
-                    ImageService.Instance.LoadUrl(ViewModel.ImageLink).Into(PhotosPageImage);
+                    ImageService.Instance.LoadUrl(ViewModel.ImageLink,TimeSpan.Zero).FadeAnimation(true).Into(PhotosPageImage);
                 }
             ));
 
-            PhotosPagePullPhotoButton.SetCommand(ViewModel.RefreshPhotoCommand);
+            Bindings.Add(PhotosPageProgressSpinner.Id,new List<Binding>());
+            Bindings[PhotosPageProgressSpinner.Id].Add(
+                this.SetBinding(() => ViewModel.LoadingSpinnerVisibility, () => PhotosPageProgressSpinner.Visibility)
+                    .ConvertSourceToTarget(b => b ? ViewStates.Visible : ViewStates.Invisible));
 
-            ViewModel.RefreshPhotoCommand.Execute(null);
+            PhotosPagePullPhotoButton.SetCommand(ViewModel.RefreshPhotoCommand);
         }
 
         public override int LayoutResourceId => Resource.Layout.PhotosPage;
@@ -46,10 +50,13 @@ namespace CheckYoPotato.Fragments
 
         private ImageViewAsync _photosPageImage;
         private Button _photosPagePullPhotoButton;
+        private ProgressBar _photosPageProgressSpinner;
 
         public ImageViewAsync PhotosPageImage => _photosPageImage ?? (_photosPageImage = FindViewById<ImageViewAsync>(Resource.Id.PhotosPageImage));
 
         public Button PhotosPagePullPhotoButton => _photosPagePullPhotoButton ?? (_photosPagePullPhotoButton = FindViewById<Button>(Resource.Id.PhotosPagePullPhotoButton));
+
+        public ProgressBar PhotosPageProgressSpinner => _photosPageProgressSpinner ?? (_photosPageProgressSpinner = FindViewById<ProgressBar>(Resource.Id.PhotosPageProgressSpinner));
 
         #endregion
     }

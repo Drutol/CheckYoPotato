@@ -33,6 +33,11 @@ namespace CheckYoPotato.ViewModels
             }
         }
 
+        public void NavigatedTo()
+        {
+            RefreshPhotoCommand.Execute(null);
+        }
+
         public RelayCommand RefreshPhotoCommand => new RelayCommand( async () =>
         {
             LoadingSpinnerVisibility = true;
