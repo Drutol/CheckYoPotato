@@ -45,11 +45,15 @@ namespace CheckYoPotato.IoT
             this.InitializeComponent();
 
             InitializeCamera();
+            
         }
 
         private async void InitializeCamera()
         {
             //Lel();
+            IoTHubCommunicator ioTHubCommunicator = new IoTHubCommunicator();
+            ioTHubCommunicator.MessageReceivedEvent += (sender, s) => TakePhoto();
+            ioTHubCommunicator.ReceiveDataFromAzure();
             try
             {
                 if (mediaCapture != null)
@@ -94,7 +98,7 @@ namespace CheckYoPotato.IoT
             }
         }
 
-        private async void TakePhoto()
+        public async void TakePhoto()
         {
             try
             {
