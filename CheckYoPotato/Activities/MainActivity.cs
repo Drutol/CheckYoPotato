@@ -30,12 +30,15 @@ namespace CheckYoPotato.Activities
             ViewModelLocator.InitializeDependencies();
             ViewModel = ViewModelLocator.MainViewModel;
             ViewModel.NavigationRequested += ViewModelOnNavigationRequested;
-            ViewModel.Navigate(PageIndex.PageSplash);
+            ViewModel.Navigate(PageIndex.PageLogin);
             CurrentContext = this;
+
+            _bindings.Add(this.SetBinding(() => ViewModel.CurrentStatus, () => MainPageCurrentStatus.Text));
 
 
             BuildDrawer();
 
+            MainPageHamburgerButton.Click += (sender, args) => _drawer.OpenDrawer();
 
 
         }
@@ -49,17 +52,19 @@ namespace CheckYoPotato.Activities
                     fragment = new SplashPageFragment();
                     break;
                 case PageIndex.PageLogin:
+                    fragment = new SignInPageFragment();
                     break;
                 case PageIndex.PageFridge:
                     break;
                 case PageIndex.PageFridgeChat:
                     break;
                 case PageIndex.PagePhotos:
+                    fragment = new PhotosPageFragment();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(page), page, null);
             }
-            _lastPage = fragment as FragmentBase;
+            _lastPage = fragment;
             var trans = FragmentManager.BeginTransaction();
             trans.SetCustomAnimations(Resource.Animator.animation_slide_btm,
                 Resource.Animator.animation_fade_out,
